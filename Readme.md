@@ -31,7 +31,7 @@ Let's search on Yahoo:
 
 ```js
 var Nightmare = require('nightmare');
-var nightmare = Nightmare({ show: true })
+var nightmare = Nightmare({ show: true });
 
 nightmare
   .goto('http://yahoo.com')
@@ -39,7 +39,7 @@ nightmare
   .click('form[action*="/search"] [type=submit]')
   .wait('#main')
   .evaluate(function () {
-    return document.querySelector('#main .searchCenterMiddle li a').href
+    return document.querySelector('#main .searchCenterMiddle li a').href;
   })
   .end()
   .then(function (result) {
@@ -65,14 +65,14 @@ var expect = require('chai').expect; // jshint ignore:line
 
 describe('test yahoo search results', function() {
   it('should find the nightmare github link first', function(done) {
-    var nightmare = Nightmare()
+    var nightmare = Nightmare();
     nightmare
       .goto('http://yahoo.com')
       .type('form[action*="/search"] [name=p]', 'github nightmare')
       .click('form[action*="/search"] [type=submit]')
       .wait('#main')
       .evaluate(function () {
-        return document.querySelector('#main .searchCenterMiddle li a').href
+        return document.querySelector('#main .searchCenterMiddle li a').href;
       })
       .end()
       .then(function(link) {
@@ -568,7 +568,7 @@ We can also create custom namespaces. We do this internally for `nightmare.cooki
 Nightmare.action('style', {
   background: function (done) {
     this.evaluate_now(function () {
-      return window.getComputedStyle(document.body, null).backgroundColor
+      return window.getComputedStyle(document.body, null).backgroundColor;
     }, done)
   }
 })
